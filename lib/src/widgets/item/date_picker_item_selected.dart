@@ -23,17 +23,24 @@ class DatePickerItemSelected extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: width,
-        margin: itemMargin,
-        decoration: new BoxDecoration(
-            color: itemBackgroundColor,
-            borderRadius: BorderRadius.all(Radius.circular(itemRadius))),
-        child: Center(
-            child: Text(
-          calendarMode == CalendarMode.gregorian
-              ? date.getGregorianWeekDayAndDate()
-              : date.getJalaliWeekDayAndDate(),
-          style: textStyle,
-        )));
+      width: width,
+      margin: itemMargin,
+      decoration: new BoxDecoration(
+          color: itemBackgroundColor,
+          borderRadius: BorderRadius.all(Radius.circular(itemRadius))),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            date.getGregorianWeekDay(),
+            style: textStyle,
+          ),
+          Text(
+            date.getGregorianDate(),
+            style: textStyle,
+          ),
+        ],
+      ),
+    );
   }
 }

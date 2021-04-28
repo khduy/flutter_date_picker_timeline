@@ -19,11 +19,18 @@ extension DateHelperExtension on DateTime {
         (this.isBefore(endDate) || this.isSameDate(endDate));
   }
 
-  String getGregorianWeekDayAndDate() {
-    final f = DateFormat('EEEE, MMM d');
+  String getGregorianWeekDay() {
+    final f = DateFormat('E');
 
     return f.format(this);
   }
+
+  String getGregorianDate() {
+    final f = DateFormat('d');
+
+    return f.format(this);
+  }
+  
 
   String getJalaliDay() {
     final f = Jalali.fromDateTime(this).formatter;

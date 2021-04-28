@@ -19,9 +19,9 @@ class FlutterDatePickerTimeline extends StatefulWidget {
     this.initialSelectedDate,
     this.initialFocusedDate,
     this.textDirection,
-    this.selectedItemWidth = 170,
-    this.unselectedItemWidth = 38,
-    this.itemHeight = 38,
+    this.selectedItemWidth = 60,
+    this.unselectedItemWidth = 60,
+    this.itemHeight = 60,
     this.itemRadius = 10,
     this.listViewPadding = const EdgeInsets.only(right: 5.5, left: 5.5),
     this.selectedItemMargin = const EdgeInsets.only(right: 5.5, left: 5.5),
@@ -255,8 +255,11 @@ class _FlutterDatePickerTimelineState extends State<FlutterDatePickerTimeline> {
   }
 
   _scrollToIndex(index) async {
-    await _scrollController.scrollToIndex(index,
-        preferPosition: AutoScrollPosition.middle);
+    await _scrollController.scrollToIndex(
+      index + 1,
+      preferPosition: AutoScrollPosition.end,
+      duration: Duration(milliseconds: 500),
+    );
   }
 
   _scrollToInitialFocusedDate() async {

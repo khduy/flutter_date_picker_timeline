@@ -27,18 +27,27 @@ class DatePickerItemUnselected extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-          width: width,
-          margin: itemMargin,
-          decoration: new BoxDecoration(
-              color: itemBackgroundColor,
-              borderRadius: BorderRadius.all(Radius.circular(itemRadius))),
-          child: Center(
-              child: Text(
-            calendarMode == CalendarMode.gregorian
-                ? date.day.toString()
-                : date.getJalaliDay(),
-            style: textStyle,
-          ))),
+        width: width,
+        margin: itemMargin,
+        decoration: new BoxDecoration(
+            color: itemBackgroundColor,
+            borderRadius: BorderRadius.all(Radius.circular(itemRadius))),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                date.getGregorianWeekDay(),
+                style: textStyle,
+              ),
+              Text(
+                date.getGregorianDate(),
+                style: textStyle,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
